@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - APPLE WIFI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <form method="POST">
+        <input type="text" name="code" placeholder="Voucher Code" required><br>
+        <input type="date" name="start_date" required><br>
+        <select name="type" required>
+            <option value="15">15 Days</option>
+            <option value="30">30 Days</option>
+        </select><br>
+        <button type="submit">Save</button>
+    </form>
+    {% if message %}<p class="success">{{ message }}</p>{% endif %}
+</body>
+</html>
