@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - APPLE WIFI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        {% if not authenticated %}
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter Admin Password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% else %}
+        <form method="POST" action="/admin/add">
+            <input type="text" name="code" placeholder="Voucher Code" required>
+            <input type="date" name="start_date" required>
+            <select name="type">
+                <option value="15">15 Days</option>
+                <option value="30">30 Days</option>
+            </select>
+            <button type="submit">Add Voucher</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>

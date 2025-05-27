@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APPLE WIFI Voucher Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/apple-logo.png') }}" alt="Apple Logo" class="logo">
+        <h1>APPLE WIFI</h1>
+        <form method="POST">
+            <input type="text" name="voucher_code" placeholder="Enter Voucher Code" required>
+            <button type="submit">Check</button>
+        </form>
+        {% if result %}
+            <p class="{{ 'valid' if result.valid else 'invalid' }}">{{ result.message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
