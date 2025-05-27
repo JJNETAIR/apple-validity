@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <form method="POST">
+      <input type="text" name="code" placeholder="Voucher Code" required>
+      <input type="date" name="start_date" required>
+      <select name="duration">
+        <option value="15">15 Days</option>
+        <option value="30">30 Days</option>
+      </select>
+      <button type="submit">Add Voucher</button>
+    </form>
+    <h2>Existing Vouchers</h2>
+    <ul>
+    {% for v in vouchers %}
+      <li>{{ v.code }} - {{ v.start_date }} - {{ v.duration }} days</li>
+    {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
