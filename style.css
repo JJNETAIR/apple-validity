@@ -1,37 +1,45 @@
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+    background: #f2f2f2;
     text-align: center;
-    padding: 2rem;
-    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
 }
-h1, h2 {
-    font-size: 2rem;
+.container {
+    margin: auto;
+    padding: 40px;
+    max-width: 500px;
+    background: white;
+    border-radius: 10px;
+    margin-top: 60px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 input, select, button {
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    width: 80%;
-    max-width: 300px;
+    padding: 10px;
+    width: 90%;
+    margin: 10px 0;
+    font-size: 16px;
 }
-.result {
-    border-radius: 10px;
-    padding: 1rem;
-    margin-top: 1rem;
-    font-size: 1.2rem;
+button {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
-.valid {
-    background-color: #d4edda;
-    color: #155724;
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
 }
-.invalid {
-    background-color: #f8d7da;
-    color: #721c24;
+.success { color: green; }
+.error { color: red; }
+.warning { color: orange; }
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
-.error {
-    color: red;
+table, th, td {
+    border: 1px solid #ddd;
 }
-.success {
-    color: green;
+th, td {
+    padding: 10px;
 }

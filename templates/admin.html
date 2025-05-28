@@ -1,28 +1,36 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="/static/styles.css">
+    <title>Admin - Apple WiFi</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Admin Dashboard</h1>
-    <form method="POST">
-      <input type="text" name="code" placeholder="Voucher Code" required>
-      <input type="date" name="start_date" required>
-      <select name="duration">
-        <option value="15">15 Days</option>
-        <option value="30">30 Days</option>
-      </select>
-      <button type="submit">Add Voucher</button>
-    </form>
-    <h2>Existing Vouchers</h2>
-    <ul>
-    {% for v in vouchers %}
-      <li>{{ v.code }} - {{ v.start_date }} - {{ v.duration }} days</li>
-    {% endfor %}
-    </ul>
-  </div>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <form method="POST" action="/add_voucher">
+            <input type="text" name="code" placeholder="Voucher Code" required>
+            <input type="date" name="start_date">
+            <select name="type">
+                <option value="15">15 days</option>
+                <option value="30">30 days</option>
+            </select>
+            <button type="submit">Add Voucher</button>
+        </form>
+
+        <form method="POST" action="/upload_csv" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv">
+            <button type="submit">Upload CSV</button>
+        </form>
+
+        <h2>Existing Vouchers</h2>
+        <table>
+            <tr><th>Code</th><th>Start Date</th><th>Type</th></tr>
+            {% for v in vouchers %}
+                <tr><td>{{ v[0] }}</td><td>{{ v[1] }}</td><td>{{ v[2] }}</td></tr>
+            {% endfor %}
+        </table>
+
+        <a href="/logout">Logout</a>
+    </div>
 </body>
 </html>

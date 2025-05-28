@@ -1,28 +1,23 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>APPLE WIFI - Voucher Check</title>
-  <link rel="stylesheet" href="/static/styles.css">
+    <title>Voucher Result</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" alt="Apple Logo">
-    <h1>APPLE WIFI</h1>
-    <p>Voucher Validity Check</p>
-    <a href="/">Back</a><br><form method="POST">
-      <input type="text" name="code" placeholder="Enter voucher code" required>
-      <button type="submit">Check</button>
-    </form>
-    {% if message %}
-    <div class="result {{ 'valid' if message == 'Valid' else 'invalid' }}">
-      <p>{{ message }}</p>
-      {% if expiry %}
-      <p>Expires on: {{ expiry }}</p>
-      <p>Days Left: {{ days_left }}</p>
-      {% endif %}
+    <div class="container">
+        {% if status == "valid" %}
+            <h2 class="success">Voucher is Valid ✅</h2>
+            <p>Expiry Date: {{ expiry }}</p>
+            <p>Days Remaining: {{ remaining }}</p>
+        {% elif status == "expired" %}
+            <h2 class="error">Voucher Expired ❌</h2>
+        {% elif status == "not_started" %}
+            <h2 class="warning">Voucher Not Activated</h2>
+        {% else %}
+            <h2 class="error">Invalid Voucher ❌</h2>
+        {% endif %}
+        <a href="/">Check Another</a>
     </div>
-    {% endif %}
-  </div>
 </body>
 </html>
